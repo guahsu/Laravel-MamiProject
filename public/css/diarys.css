@@ -1,3 +1,31 @@
+.head-tools{
+  padding:8px;
+}
+
+.btn-search{
+	padding-right: 15px;
+}
+
+.btn-search.btn:first-child {
+    width: 100px;
+}
+
+.btn-create{
+  text-align:right;
+  padding-bottom: 10px;
+}
+
+.btn-back{
+  width:120px;
+  text-align:left;
+  padding-bottom: 10px;
+
+}
+
+.tableScroll{
+	min-height:250px;
+}
+
 .text-center{
   text-align:center;
 }
@@ -17,4 +45,18 @@
 
 .p-number td{
   text-align:center;
+}
+
+table{
+  table-layout:fixed;
+}
+table thead tr th{
+	white-space:nowrap;
+	text-align:center;
+}
+table tbody *{
+  word-break: break-all;
+}
+.tableSpace{
+  white-space: normal !important;
 }

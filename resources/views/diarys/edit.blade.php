@@ -2,6 +2,7 @@
 @section('pageTitle')<title>Mami Project - 飲食日記 - 本日記錄</title>@stop
 <!-- pageCss -->
 @section('pageCss')
+<link rel="stylesheet" href="{{ asset('css/diarys.css') }}">
 <link rel="stylesheet" href="{{ asset('css/normalize.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.skinFlat.css') }}" />

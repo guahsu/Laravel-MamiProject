@@ -52,5 +52,17 @@
     </nav>
   </div>
 @yield('content')
+
+<footer>
+<hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="footer-box">
+        Developed By GuaHsu, Powered By Laravel © MamiProject 2016. All rights reserved.
+      </div>
+    </div>
+  </div>
+
+</footer>
 </body>
 </html>
