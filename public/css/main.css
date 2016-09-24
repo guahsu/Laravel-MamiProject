@@ -18,7 +18,7 @@ h6, .h6 {
 }
 
 @media (min-width: 1200px) {
-  .container {
+  .container footer{
     width: 980px;
   }
 }
@@ -26,6 +26,23 @@ h6, .h6 {
   padding-bottom:70px;
 }
 
+/*footer*/
+footer{
+  margin-right: auto;
+  margin-left: auto;
+  padding: 35px;
+}
+.footer-box{
+  border-top: 1px solid #7fd4c3;
+  color: #1abc9c;
+  font-size: 12px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.footer-text{
+  font-size: 1px;
+}
 /**/
 .panel-test{
   border-color:#18bc9c

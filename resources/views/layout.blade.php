@@ -24,6 +24,7 @@
 <![endif]-->
 </head>
 <body>
+
   <div class="menubar">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container" id="menubar">
@@ -51,18 +52,18 @@
       </div>
     </nav>
   </div>
+
 @yield('content')
 
-<footer>
-<hr>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="footer-box">
-        Developed By GuaHsu, Powered By Laravel © MamiProject 2016. All rights reserved.
+  <footer>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="footer-box">
+          Developed By GuaHsu<br>© MamiProject 2016. All rights reserved.
+        </div>
       </div>
     </div>
-  </div>
+  </footer>
 
-</footer>
 </body>
 </html>
