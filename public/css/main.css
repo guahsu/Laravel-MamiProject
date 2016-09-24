@@ -1,0 +1,149 @@
+/*
+ * Globals
+ */
+body {
+  font-family : Microsoft JhengHei;
+  color: #114b5f;
+  /*background-color: #F3E9D2;
+  background-color: #c6dabf;*/
+}
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: 0;
+  font-family : Microsoft JhengHei;
+  font-weight: normal;
+  color: #333;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 980px;
+  }
+}
+
+.menubar{
+  padding-bottom:70px;
+}
+
+/* signin-page */
+.signinbox {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="userid"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Nav G */
+.navbar{
+	margin-bottom:0px;
+}
+
+/*
+.input-group{
+  margin-bottom:10px;
+}
+*/
+.head-tools{
+  padding:8px;
+}
+
+/*-------------------*/
+.centerSet{
+	text-align:center;
+}
+.checkStyle{
+	width:16px;
+	height:16px;
+}
+.inputDate{
+	min-width: 90px;
+}
+.inputGoodsName{
+	max-width:250px;
+}
+.inputNote{
+	width:200px;
+}
+.changed{
+	background-color:#FFFFCC;
+}
+.btn-search{
+	padding-right: 15px;
+}
+.btn-search.btn:first-child {
+    width: 100px;
+}
+.btn-create{
+  text-align:right;
+  padding-bottom: 10px;
+}
+.btn-back{
+  width:120px;
+  text-align:left;
+  padding-bottom: 10px;
+
+}
+.tableScroll{
+	min-height:250px;
+}
+table{
+  table-layout:fixed;
+}
+table thead tr th{
+	white-space:nowrap;
+	text-align:center;
+}
+table tbody *{
+  word-break: break-all;
+}
+.tableSpace{
+  white-space: normal !important;
+}
+
+/**/
+.panel-test{
+  border-color:#18bc9c
+}
+.panel-test>.panel-heading{
+  color:#ffffff;background-color:
+  #18bc9c;border-color:#18bc9c
+}
+.panel-test>.panel-heading+.panel-collapse>.panel-body{
+  border-top-color:#18bc9c
+}
+.panel-test>.panel-heading .badge{
+  color:#18bc9c;background-color:#ffffff
+}
+.panel-test>.panel-footer+.panel-collapse>.panel-body{
+  border-bottom-color:#18bc9c
+}
+

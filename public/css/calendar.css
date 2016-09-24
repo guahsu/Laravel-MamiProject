@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.input-group .input-group-addon{
+    padding: 0px 15px;
+}
+
+.calendar-box{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    padding-top: 15px;
+}
+
+.calender-set a{
+    color: #fff;
+}
+
+.head {
+    padding: 30px 25px 15px 25px;
+    width: 100%;
+    background: #1abc9c;
+}
+#year{
+    font-size: 18px;
+}
+
+#month{
+    font-size: 20px;
+}
+
+.head ul {
+    margin: 0;
+    padding: 0;
+}
+
+.head ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.head .prev {
+    float: left;
+    padding-top: 10px;
+}
+
+.head .next {
+    float: right;
+    padding-top: 10px;
+}
+
+.head .glyphicon:hover .glyphicon:focus{
+    color: #2c3e50;
+}
+
+.calender-info{
+    color: #fff;
+    font-size: 12px;
+    background-color: #1abc9c;
+    height: 25px;
+}
+
+.calender-info a{
+    color: #fff;
+    text-decoration:none;
+}
+
+.calender-info-left{
+    padding-left: 15px;
+    float: left;
+}
+
+.calendar-info-right{
+    padding-right: 15px;
+    float: right;
+}
+
+.info-today{
+    color: #e47d7d;
+}
+
+#setMcDateBtn{
+    padding-bottom: 5px;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #ddd;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.43%;
+    color: #666;
+    text-align: center;
+}
+
+.days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.43%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #777;
+}
+
+.days li .today {
+    padding: 5px;
+    background: #e47d7d;
+    color: white !important;
+}
+
+.days li a{
+    text-decoration:none;
+}
+
+.days li .day:hover .day:focus{
+    cursor:hand;
+    padding: 5px;
+    background: #ddd;
+    color: #1abc9c c
+}
+
+.day-clicked{
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important;
+}
+
+.emptyday{
+    display:none;
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:992px) {
+    .weekdays li,
+    .days li {
+        width: 13.15%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .mcCycle{
+    padding-top: 10px;
+    }
+    .weekdays li,
+    .days li {
+        width: 13.6%;
+    }
+}
+
+@media screen and (max-width:515px) {
+    .weekdays li,
+    .days li {
+        width: 13.4%;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .weekdays li,
+    .days li {
+        width: 13.2%;
+    }
+    .days li .today {
+        padding: 2px;
+    }
+}
+
+@media screen and (max-width: 355px) {
+    .weekdays li,
+    .days li {
+        width: 13%;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .weekdays li,
+    .days li {
+        width: 12.7%;
+    }
+}
+
+/*calendar-eventbox*/
+.calendar-eventbox{
+    padding-top: 15px;
+}
+.calendar-eventbox .panel-body{
+    min-height: 255px;
+}
+.note-week{
+    font-size: 18px;
+    color:#1abc9c;
+}
+.note-title{
+    font-size: 18px;
+    color:#1abc9c;
+}
+
