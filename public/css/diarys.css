@@ -31,7 +31,7 @@
 }
 
 .table-box{
-  width: 950px;
+  min-width: 950px;
 }
 
 .thead tr{

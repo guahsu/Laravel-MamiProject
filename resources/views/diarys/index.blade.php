@@ -89,9 +89,7 @@ $(function(){
                             <td class="tableSpace">{{ $diary->otder }}</td>
                             <td class="tableSpace text-center">{{ $diary->goal == 'Y' ? '是' : '否'}}</td>
                             <td class="tableSpace text-center">
-                                <div style="max-width:80px;">
                                 <button type="button" class="btn btn-xs btn-info viewDt btn-block"> 顯示 </button>
-                                </div>
                             </td>
                         </tr>
                         <tr class="dt-box" dt-box="{{ $diary->id }}" style="display: none;">

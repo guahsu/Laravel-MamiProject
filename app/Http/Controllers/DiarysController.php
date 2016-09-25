@@ -144,6 +144,6 @@ class DiarysController extends Controller
     $Post->user_id      = $user_id;
     $Post->save();
 
-    return redirect('/');
+    return redirect('/diarys');
   }
 }
