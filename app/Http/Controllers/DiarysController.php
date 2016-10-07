@@ -12,22 +12,25 @@ use App\Http\Controllers\Controller;
 class DiarysController extends Controller
 {
   //列表顯示
-  public function index()
-  {
+  public function index(){
+
     $user_id = Auth::id();
     $diarys  = Diary::where('user_id', '=', $user_id)
                     ->orderBy('id','desc')
                     ->get();
+
     return view('diarys/index',compact('diarys'));
+
   }
 
   //列表動作-搜尋
-  public function search()
-  {
+  public function search(){
+
     $user_id  = Auth::id();
     $dateFrom = Input::get('dateFrom');
     $dateTo   = Input::get('dateTo');
     $goalYn   = Input::get('goalYn');
+
     if(empty($dateFrom)){
         $diarys = Diary::where('user_id', '=', $user_id)
                 ->where('goal', 'like', $goalYn)
@@ -40,31 +43,36 @@ class DiarysController extends Controller
                 ->orderBy('id','desc')
                 ->get();
     };
+
     return view('diarys/lists',compact('diarys'));
+
   }
 
   //新增
-  public function create()
-  {
+  public function create(){
+
     $user_id   = Auth::id();
     $date      = date('Y/m/d');
     $weekArray = Array('日','一','二','三','四','五','六');
     $week      = $weekArray[date('w')];
+
     //判斷今日是否已經建立過資料
     $result = Diary::where('user_id', '=', $user_id)
                    ->where('title'  , '=', $date)
                    ->get();
+
     //如果有資料，顯示為編輯頁；否則顯示建立頁
     if ($result->first()){
       return view('diarys/edit',compact('result', 'week'));
     }else{
       return view('diarys/create',compact('date', 'week'));
     };
+
   }
 
   //存檔&更新
-  public function store(Request $request)
-  {
+  public function store(Request $request){
+
     $user_id      = Auth::id();
     $input        = Input::all();
     $storeType    = Input::get('storeType');
@@ -145,5 +153,6 @@ class DiarysController extends Controller
     $Post->save();
 
     return redirect('/diarys');
+
   }
 }

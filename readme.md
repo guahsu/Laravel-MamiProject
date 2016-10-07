@@ -1,41 +1,60 @@
-##MamiProject
+#[Laravel]MamiProject
 
-給老婆紀錄+練習Laravel/jQuery/CSS用。
+>孕期日曆、飲食紀錄
 
------------------------------------------------------------
+>給老婆紀錄+練習Laravel/jQuery/CSS用。
 
-[DEMO](http://mami.guastudio.com/)
+##Online Web
+
+### [https://mami.guastudio.com/](https://mami.guastudio.com/)
 
 測試帳號：demo@guastudio.com
 
 測試密碼：demopwd
 
+##功能
+
+- #### 孕期日曆
+
+   (1)推測預產期並依據週數顯示對應事件
+
+   (2)自訂日曆事件(欄位主要是紀錄媽媽教室用XD)
+   
+   ![孕期日曆](http://guastudio.com/Mami/public/img/MamiProject-demo1.PNG)
+
+- #### 飲食日記
+
+   紀錄三餐食物&營養指數
+   
+   ![飲食日記](http://guastudio.com/Mami/public/img/MamiProject-demo2.PNG)
+
+- #### @todo
+
+   資料修改頁
+
 -----------------------------------------------------------
 
-目前功能：
+## 相關使用
 
-1. 孕期日曆 - 推測預產期並依據週數顯示對應事件
+##### - 作業系統：
 
-2. 飲食日記 - 紀錄三餐食物&營養指數
+- Windows7
 
-新增中：
+##### - 開發工具：
 
-@todo 孕期日曆 - 使用者自訂事件儲存(媽媽教室)
+- [Wagon](http://www.laravel-dojo.com/opensource/wagon)
 
------------------------------------------------------------
+- [Sublime Text3](https://www.sublimetext.com/3)
 
-作業系統：Windows7
+##### - 使用：
 
-[Wagon](http://www.laravel-dojo.com/opensource/wagon)
+- [Laravel   v5.1.3](https://laravel.com/docs/5.1/)
 
-[Sublime Text3](https://www.sublimetext.com/3)
+- [jQuery    v1.11.3](https://jquery.com/)
 
-Laravel   v5.1.3
+- [Bootstrap v3.3.5](http://getbootstrap.com/)
 
-jQuery    v1.11.3
+- [Ion.RangeSlider v2.1.4](http://ionden.com/a/plugins/ion.rangeSlider/en.html)
 
-Bootstrap v3.3.5
+- [Datepicker for Bootstrap v1.5.0](https://bootstrap-datepicker.readthedocs.io/en/latest/)
 
-Ion.RangeSlider v2.1.4
-
-Datepicker for Bootstrap v1.5.0

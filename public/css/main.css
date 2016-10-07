@@ -1,63 +1,85 @@
 /*
  * Globals
  */
+
 body {
-  font-family : Microsoft JhengHei;
-  color: #114b5f;
+    font-family: 微軟正黑體;
+    "Microsoft JhengHei",
+    sans-serif;
+    color: #114b5f;
 }
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  margin-top: 0;
-  font-family : Microsoft JhengHei;
-  font-weight: normal;
-  color: #333;
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    margin-top: 0;
+    font-family: Microsoft JhengHei;
+    font-weight: normal;
+    color: #333;
 }
 
 @media (min-width: 1200px) {
-  .container footer{
-    width: 980px;
-  }
+    .container footer {
+        width: 980px;
+    }
 }
-.menubar{
-  padding-bottom:70px;
+
+.menubar {
+    padding-bottom: 70px;
 }
+
 
 /*footer*/
-footer{
-  margin-right: auto;
-  margin-left: auto;
-  padding: 35px;
-}
-.footer-box{
-  border-top: 1px solid #7fd4c3;
-  color: #1abc9c;
-  font-size: 12px;
-  padding-top: 15px;
-  text-align: center;
+
+footer {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 35px;
 }
 
-.footer-text{
-  font-size: 1px;
+.footer-box {
+    border-top: 1px solid #7fd4c3;
+    color: #1abc9c;
+    font-size: 12px;
+    padding-top: 15px;
+    text-align: center;
 }
+
+.footer-text {
+    font-size: 1px;
+}
+
+
 /**/
-.panel-test{
-  border-color:#18bc9c
-}
-.panel-test>.panel-heading{
-  color:#ffffff;background-color:
-  #18bc9c;border-color:#18bc9c
-}
-.panel-test>.panel-heading+.panel-collapse>.panel-body{
-  border-top-color:#18bc9c
-}
-.panel-test>.panel-heading .badge{
-  color:#18bc9c;background-color:#ffffff
-}
-.panel-test>.panel-footer+.panel-collapse>.panel-body{
-  border-bottom-color:#18bc9c
+
+.panel-test {
+    border-color: #e47d7d
 }
 
+.panel-test>.panel-heading {
+    color: #ffffff;
+    background-color: #e47d7d;
+    border-color: #e47d7d
+}
+
+.panel-test>.panel-heading+.panel-collapse>.panel-body {
+    border-top-color: #e47d7d
+}
+
+.panel-test>.panel-heading .badge {
+    color: #e47d7d;
+    background-color: #ffffff
+}
+
+.panel-test>.panel-footer+.panel-collapse>.panel-body {
+    border-bottom-color: #e47d7d
+}

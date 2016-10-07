@@ -136,8 +136,8 @@ ul {
 }
 
 .day-clicked{
-    padding: 5px;
-    background: #1abc9c;
+    padding: 5px !important;
+    background: #1abc9c !important;
     color: white !important;
 }
 
@@ -155,8 +155,9 @@ ul {
 
 @media screen and (max-width:768px) {
     .mcCycle{
-    padding-top: 10px;
+        padding-top: 10px;
     }
+
     .weekdays li,
     .days li {
         width: 13.6%;
@@ -194,11 +195,11 @@ ul {
     }
 }
 
-/*calendar-eventbox*/
-.calendar-eventbox{
+/*calendar-note*/
+.calendar-note{
     padding-top: 15px;
 }
-.calendar-eventbox .panel-body{
+.calendar-note .panel-body{
     min-height: 255px;
 }
 .note-week{
@@ -210,3 +211,14 @@ ul {
     color:#1abc9c;
 }
 
+/*calendar-event*/
+.calendar-event{
+    padding-top: 10px;
+}
+.enentInput{
+    padding-top: 10px;
+}
+
+.panel-heading{
+    padding: 5px;
+}

@@ -7,6 +7,7 @@ use Auth;
 use Input;
 use App\User;
 use App\Calendar_note;
+use App\Calendar_event;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -40,28 +41,55 @@ class CalendarController extends Controller
         //週數事件
         $calendarNote = $this->calendarNote($mcDate, $dueDate, $year, $month, $day);
 
+        //自訂事件
+        $calendarEvent = $this->calendarEvent($year, $month, $day);
+
         //回傳資料到view
-        return view('calendar/index', compact('calendar', 'calendarNote'));
+        return view('calendar/index', compact('calendar', 'calendarNote', 'calendarEvent'));
 
     }
 
     //孕期日曆動作
     public function action()
     {
+        /* $action = 傳入動作 */
+        $action  = Input::get('action');  //= 傳入動作(參閱上方)
         /*
-        ** $action = 傳入動作
+        ** (0)setEvent:新增事件屬性設定
         ** (1)changeMcDate:重設經期資訊，重置事件日為今天
         ** (2)week-event:依據點擊年月日及最後經期日推算事件日
         ** (3)goToday:切換到執行日的月份
         ** (4)prev:切換為上個月
         ** (5)next:切換為下個月
         */
-        $action  = Input::get('action');  //= 傳入動作(參閱上方)
-        $mcDate  = Input::get('mcDate');  //= 最後經期日
-        $mcCycle = Input::get('mcCycle'); //= 經期週期
-        $year    = Input::get('year');    //= 點選的年份
-        $month   = Input::get('month');   //= 點選的月份
-        $day     = Input::get('day');     //= 點選的日期
+
+        /*
+        **前端傳入屬性取得
+        */
+        $mcDate     = Input::get('mcDate');     //= 最後經期日
+        $mcCycle    = Input::get('mcCycle');    //= 經期週期
+        $year       = Input::get('year');       //= 點選的年份
+        $month      = Input::get('month');      //= 點選的月份
+        $day        = Input::get('day');        //= 點選的日期
+        $eventType  = Input::get('eventType');  //= 事件類別 C:新增 U:更新
+        $eventId    = Input::get('eventId');    //= 事件ID
+        $eventDate  = Input::get('eventDate');  //= 事件日期
+        $eventTitle = Input::get('eventTitle'); //= 事件標題
+        $eventPhone = Input::get('eventPhone'); //= 事件備註1(電話)
+        $eventAddr  = Input::get('eventAddr');  //= 事件備註2(地址)
+        $eventNote  = Input::get('eventNote');  //= 事件備註3(內容)
+
+        /*
+        **setEvent
+        **透過setEvent新增/編輯自訂事件
+        **若存檔成功則回傳結果值帶到View中
+        */
+        if($action == 'setEvent'){
+
+            $response = $this->setEvent($eventType, $eventId, $eventDate, $eventTitle, $eventPhone, $eventAddr, $eventNote);
+
+            return $response;
+        }
 
         /*
         **dueDate
@@ -89,9 +117,11 @@ class CalendarController extends Controller
         /*
         ** (1)changeMcDate & (2)week-event
         ** 透過calendarNote取得當前週數對應事件
+        ** 透過calendarEvent取得當前對應自訂事件
         */
         if($action == 'week-event' || $action == 'changeMcDate'){
-            $response = $this->calendarNote($mcDate, $dueDate, $year, $month, $day);
+            $response  = $this->calendarNote($mcDate, $dueDate, $year, $month, $day);
+            $response += $this->calendarEvent($year, $month, $day);
             return $response;
         }
 
@@ -103,7 +133,7 @@ class CalendarController extends Controller
             $year   = date('Y');
             $month  = date('m');
             $day    = date('d');
-            $response = $this->calendarNote($mcDate, $dueDate, $year, $month, $day);
+            $response  = $this->calendarNote($mcDate, $dueDate, $year, $month, $day);
             $response += $this->calendar($dueDate, $year, $month, $day);
             return $response;
         }
@@ -124,7 +154,36 @@ class CalendarController extends Controller
         return $response;
     }
 
+    /*************************************************************************************************/
+    //新增&編輯日曆事件
+    public function setEvent($eventType, $eventId, $eventDate, $eventTitle, $eventPhone, $eventAddr, $eventNote){
+        //新建或更新
+        if($eventType=='C'){
+          $Post = new Calendar_event;
+        }else{
+          $Post = Calendar_event::find($eventId);
+        }
+        //
+        $Post->user_id        = Auth::id();
+        $Post->event_date     = date('Y-m-d', strtotime($eventDate));
+        $Post->event_title    = $eventTitle;
+        $Post->event_content1 = $eventPhone;
+        $Post->event_content2 = $eventAddr;
+        $Post->event_content3 = $eventNote;
+        $Post->save();
+        //回傳值設定
+        $calendarEvent['event-set']   = 'Y';
+        $calendarEvent['event-id']    = $eventId;
+        $calendarEvent['event-title'] = e($eventTitle);
+        $calendarEvent['event-phone'] = e($eventPhone);
+        $calendarEvent['event-addr']  = e($eventAddr);
+        $calendarEvent['event-note']  = e($eventNote);
 
+        return $calendarEvent;
+    }
+
+
+    //孕期日曆
     public function calendar($dueDate, $year, $month, $day){
         //格式化
         $rows = 1;
@@ -141,7 +200,7 @@ class CalendarController extends Controller
         $calendar['dueDate']      = '預產日 : ' . $dueDate; //= 預產期
 
         //日曆內容組合(月初空白日期格)
-        for($i = 1; $i <= $weekday; $i++) {
+        for($i = 1; $i < $weekday; $i++) {
             $calendar['days'] .= '<li><span class="emptyday"></span></li> ';
         }
 
@@ -167,17 +226,38 @@ class CalendarController extends Controller
             }
         }
 
-        //日曆內容組合(月尾空白日期格)
-        while( ($day + $weekday) <= $rows * 7)
-        {
-            $calendar['days'] .= '<li><span class="emptyday"></span></li> ';
-            $day++;
-        }
-
         //回傳資料
         return $calendar;
 
     }
+
+    //取得自訂事件
+    public function calendarEvent($year, $month, $day){
+
+        $user_id   = Auth::id();
+        $eventDate = date('Y-m-d', strtotime($year . $month . $day));
+        $result    = Calendar_event::where('user_id',    '=', $user_id)
+                                   ->where('event_date', '=', $eventDate)
+                                   ->first();
+        //
+        if ($result==null){
+            $calendarEvent['event-set']   = 'N';
+            $calendarEvent['event-id']    = '';
+            $calendarEvent['event-title'] = '';
+            $calendarEvent['event-phone'] = '';
+            $calendarEvent['event-addr']  = '';
+            $calendarEvent['event-note']  = '';
+        }else{
+            $calendarEvent['event-set']   = 'Y';
+            $calendarEvent['event-id']    = $result->id;
+            $calendarEvent['event-title'] = e($result->event_title);
+            $calendarEvent['event-phone'] = e($result->event_content1);
+            $calendarEvent['event-addr']  = e($result->event_content2);
+            $calendarEvent['event-note']  = e($result->event_content3);
+        }
+
+        return $calendarEvent;
+      }
 
     //取得週期事件
     public function calendarNote($mcDate, $dueDate, $year, $month, $day){
@@ -196,14 +276,16 @@ class CalendarController extends Controller
 
         //取得當週紀錄
         if($week >= 0  && $week <= 40){
-            $get_note  = Calendar_note::where('week', '=', $week)->first();
-            $calendarNote['title'] = '[第' . $get_note->week .'週]' . $year . '-' . $month . '-' . $day;
-            $calendarNote['content1'] = $get_note->content1;
-            $calendarNote['content2'] = $get_note->content2;
-            $calendarNote['content3'] = $get_note->content3;
-            $calendarNote['content4'] = $get_note->content4;
+            $result  = Calendar_note::where('week', '=', $week)->first();
+            $calendarNote['week'] = '[第' . $result->week .'週]';
+            $calendarNote['date'] = $year . '-' . $month . '-' . $day;
+            $calendarNote['content1'] = $result->content1;
+            $calendarNote['content2'] = $result->content2;
+            $calendarNote['content3'] = $result->content3;
+            $calendarNote['content4'] = $result->content4;
         }else{
-            $calendarNote['title'] = '[本日非孕期]' . $year . '-' . $month . '-' . $day;
+            $calendarNote['week'] = '[本日非孕期]';
+            $calendarNote['date'] = $year . '-' . $month . '-' . $day;
             $calendarNote['content1'] = '';
             $calendarNote['content2'] = '';
             $calendarNote['content3'] = '';
@@ -213,7 +295,7 @@ class CalendarController extends Controller
         //預產日
         $calendarNote['dueDate'] = '預產日 : ' . $dueDate;
 
-        //回傳孕期事件
+        //回傳週期事件
         return $calendarNote;
     }
 

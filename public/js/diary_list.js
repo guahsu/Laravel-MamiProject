@@ -14,7 +14,7 @@ $(document).on("click",".viewDt",function(){
       $(".dt-box[dt-box='" + diary_id + "']").hide(250);
       $("[dt-row='" + diary_id + "']").slideUp(250);
       $(this).removeClass("dtOpen");
-      $(this).text("瀏覽");
+      $(this).text("顯示");
     }else{
       $(".dt-box[dt-box='" + diary_id + "']").show();
       $("[dt-row='" + diary_id + "']").slideDown(250);
