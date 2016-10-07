@@ -1,5 +1,8 @@
 <?php
 
+//DEMO
+Route::get('/DEMO', 'Auth\AuthController@getLogin');
+
 //測試
 Route::get('/forTest', 'SitesController@test');
 

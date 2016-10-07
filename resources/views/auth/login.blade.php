@@ -29,7 +29,7 @@
 </style>
 @stop
 @section('content')
-<div class="container" style="margin-top:40px;"">
+<div class="container" style="margin-top:40px;">
     <div class="row">
         <div class="col-md-6 col-sm-6 col-sm-offset-3">
             <div class="panel panel-success">
@@ -49,7 +49,11 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-envelope"></i>
                                         </span>
+                                        @if(Request::path() == 'DEMO')
+                                        <input class="form-control login-input" placeholder="Email" name="email" type="email" value="demo@guastudio.com" autofocus required>
+                                        @else
                                         <input class="form-control login-input" placeholder="Email" name="email" type="email" value="{{ old( 'email') }}" autofocus required>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -57,7 +61,11 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-lock"></i>
                                         </span>
+                                        @if(Request::path() == 'DEMO')
+                                        <input class="form-control login-input" placeholder="Password" name="password" type="password" value="demopwd" required>
+                                        @else
                                         <input class="form-control login-input" placeholder="Password" name="password" type="password" value="" required>
+                                        @endif
                                     </div>
                                     <div style="text-align:right;">
                                     <a href="{{ asset( '/forget') }}" onClick="" style="font-size:13px">忘記密碼?</a>
