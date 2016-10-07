@@ -4,9 +4,9 @@
 
 >給老婆紀錄+練習Laravel/jQuery/CSS用。
 
-##Online Web
+##WEB SITE
 
-### [https://mami.guastudio.com/](https://mami.guastudio.com/)
+### [DEMO](https://mami.guastudio.com/DEMO)
 
 測試帳號：demo@guastudio.com
 
