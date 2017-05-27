@@ -1,10 +1,12 @@
-#[Laravel]MamiProject
+# [Laravel]MamiProject
+
+![](https://demo.guastudio.com/img/portfolio/MamiProject.png)
 
 >孕期日曆、飲食紀錄
 
 >給老婆紀錄+練習Laravel/jQuery/CSS用。
 
-##WEB SITE
+## WEB SITE
 
 ### [DEMO(https://mami.guastudio.com/DEMO)](https://mami.guastudio.com/DEMO)
 
@@ -19,14 +21,10 @@
    (1)推測預產期並依據週數顯示對應事件
 
    (2)自訂日曆事件(欄位主要是紀錄媽媽教室用XD)
-   
-   ![孕期日曆](http://guastudio.com/Mami/public/img/MamiProject-demo1.PNG)
 
 - #### 飲食日記
 
    紀錄三餐食物&營養指數
-   
-   ![飲食日記](http://guastudio.com/Mami/public/img/MamiProject-demo2.PNG)
 
 - #### @todo
 
